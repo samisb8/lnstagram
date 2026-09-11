@@ -1,8 +1,8 @@
 * { box-sizing: border-box; }
 
 :root {
-  --border: #d8dde4;
-  --text: #121212;
+  --border: #dbdbdb;
+  --text: #000000;
   --muted: #68717d;
   --blue: #4a9cf3;
   --blue-hover: #2684eb;
@@ -10,8 +10,20 @@
   --soft: #f5f7f9;
 }
 
-html, body { margin: 0; min-height: 100%; background: var(--surface); color: var(--text); }
-body { font-family: Arial, Helvetica, sans-serif; }
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: #fff;
+  color: #000;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
 button, input { font: inherit; }
 button { cursor: pointer; }
 button:disabled { cursor: not-allowed; opacity: .65; }
@@ -19,7 +31,7 @@ button:disabled { cursor: not-allowed; opacity: .65; }
 .auth-shell {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 58% 42%;
+  grid-template-columns: 55% 45%;
   grid-template-rows: 1fr auto;
   background: #fff;
 }
@@ -74,10 +86,11 @@ button:disabled { cursor: not-allowed; opacity: .65; }
 .hero-copy h1 {
   margin: 0;
   text-align: center;
-  font-size: clamp(38px, 3vw, 58px);
+  font-family: "Segoe UI Variable Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(38px, 2.8vw, 52px);
   font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: -2px;
+  line-height: 1.35;
+  letter-spacing: -1.4px;
 }
 .hero-copy span {
   background: linear-gradient(90deg, #ff6547, #ff304f, #ff1b79, #d900b5);
@@ -102,21 +115,57 @@ button:disabled { cursor: not-allowed; opacity: .65; }
 .login-panel {
   min-height: 760px;
   display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(96px, 11vh, 120px) 52px 48px;
+  background: #fff;
+  color: #000;
+}
+.auth-card {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 548px);
+}
+.login-logo {
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 48px 64px;
+  margin-bottom: 16px;
 }
-.auth-card { width: min(100%, 520px); transform: translateY(-15px); }
-.auth-title { font-size: 20px; font-weight: 700; margin: 0 0 24px; }
-.demo-label { margin: -12px 0 22px; font-size: 12px; color: #737373; }
-.auth-form { display: grid; gap: 10px; }
+.login-logo img {
+  display: block;
+  width: 72px;
+  height: auto;
+  object-fit: contain;
+}
+.auth-title {
+   margin: 0 0 8px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+.demo-label {
+  margin: 0 0 24px;
+  color: #737373;
+  font-size: 13px;
+  line-height: 18px;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .auth-form input {
   width: 100%;
-  height: 58px;
+  height: 60px;
   border: 1px solid #dbdbdb;
-  border-radius: 15px;
+  border-radius: 16px;
   padding: 0 18px;
   font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
   outline: none;
   background: #fff;
   transition: border-color .15s, box-shadow .15s;
@@ -125,9 +174,11 @@ button:disabled { cursor: not-allowed; opacity: .65; }
 
 .primary-button, .google-button, .outline-button {
   width: 100%;
-  min-height: 48px;
+  min-height: 44px;
   border-radius: 999px;
+  font-size: 16px;
   font-weight: 700;
+  letter-spacing: 0;
 }
 .primary-button { border: 0; color: white; background: var(--blue); margin-top: 8px; }
 .primary-button:hover:not(:disabled) { background: #1877f2; }
@@ -140,7 +191,15 @@ button:disabled { cursor: not-allowed; opacity: .65; }
 .status { font-size: 14px; line-height: 1.35; margin: 16px 4px 0; }
 .status.error { color: #b42318; }
 .status.success { color: #16794f; }
-.meta-brand { display: flex; align-items: center; justify-content: center; margin-top: 28px; }
+.forgot-save {
+  margin: 22px 0 0;
+  color: #0a0a0a;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+.meta-brand { display: flex; align-items: center; justify-content: center; margin-top: 64px; }
 .meta-logo {
   width: 92px;
   height: auto;
@@ -171,7 +230,7 @@ button:disabled { cursor: not-allowed; opacity: .65; }
 @media (max-width: 960px) {
   .auth-shell { grid-template-columns: 1fr; }
   .hero-panel { display: none; }
-  .login-panel { min-height: calc(100vh - 76px); padding: 32px 22px; }
+  .login-panel { min-height: calc(100vh - 76px); align-items: center; padding: 32px 22px; }
   .auth-footer { grid-column: 1; }
   .auth-card { transform: none; }
 }

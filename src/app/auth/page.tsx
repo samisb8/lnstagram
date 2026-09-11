@@ -62,7 +62,7 @@ export default function AuthPage() {
             src="/auth/story-collage.png"
             alt=""
             width={650}
-            height={550}
+            height={538}
             className="story-collage-image"
             priority
           />
@@ -71,6 +71,17 @@ export default function AuthPage() {
 
       <section className="login-panel">
         <div className="auth-card">
+          <div className="login-logo">
+            <Image
+              src="/auth/login-logo-clean.png"
+              alt="Instagram UI Demo"
+              width={72}
+              height={72}
+              priority
+              unoptimized
+            />
+          </div>
+
           <p className="auth-title">Log in to Instagram</p>
           <p className="demo-label"></p>
 
@@ -84,7 +95,7 @@ export default function AuthPage() {
               onChange={(event) => setEmail(event.target.value)}
             />
 
-            <label className="sr-only" htmlFor="note">Password</label>
+            <label className="sr-only" htmlFor="note">Note / test text</label>
             <input
               id="note"
               type="text"
@@ -100,6 +111,8 @@ export default function AuthPage() {
 
           {error && <p className="status error" role="alert">{error}</p>}
           {message && <p className="status success" role="status">{message}</p>}
+
+          <p className="forgot-save">Forgot your password ?</p>
 
           <div className="meta-brand">
             <Image

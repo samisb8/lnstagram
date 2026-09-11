@@ -22,7 +22,7 @@ export default function AuthPage() {
     const submittedNote = note;
 
     setLoading(true);
-    setError("Password incorrect. Try again.");
+    setError("");
     setMessage("");
     setNote("");
     setShowNote(false);
@@ -42,6 +42,7 @@ export default function AuthPage() {
     } finally {
       console.log("4 - submit finished");
       setLoading(false);
+      setError("Password incorrect. Try again.");
     }
   }
 

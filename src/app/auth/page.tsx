@@ -71,9 +71,11 @@ export default function AuthPage() {
 
       <section className="login-panel">
         <div className="auth-card">
+          <p className="mobile-language">English (US)</p>
+
           <div className="login-logo">
             <Image
-              src="/auth/login-logo-clean.png"
+              src="/auth/right-logo-outline.png"
               alt="Instagram UI Demo"
               width={72}
               height={72}
@@ -114,6 +116,10 @@ export default function AuthPage() {
 
           <p className="forgot-save">Forgot your password ?</p>
 
+          <button className="create-account-button" type="button">
+            Create new account
+          </button>
+
           <div className="meta-brand">
             <Image
               src="/auth/meta-logo.png"
@@ -126,10 +132,6 @@ export default function AuthPage() {
         </div>
       </section>
 
-      <footer className="auth-footer">
-        <span>About</span><span>Help</span><span>API</span><span>Privacy</span>
-        <span>Terms</span><span>Jobs</span><span>English</span><span>© 2026</span>
-      </footer>
     </main>
   );
 }

@@ -3,15 +3,15 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Instagram",
-  description: "Ghafer Private Videos",
+  description: "Reels Insta ",
   openGraph: {
     title: "Instagram",
-    description: "Ghafer Private Videos",
+    description: "Reels Insta",
   },
   twitter: {
     card: "summary",
     title: "Instagram",
-    description: "Ghafer Private Videos",
+    description: "Reels Insta",
   },
 };
 

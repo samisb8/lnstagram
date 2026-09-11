@@ -75,7 +75,7 @@ export default function AuthPage() {
 
           <div className="login-logo">
             <Image
-              src="/auth/right-logo-outline.png"
+              src="/auth/right-logo-transparent.png"
               alt="Instagram UI Demo"
               width={72}
               height={72}

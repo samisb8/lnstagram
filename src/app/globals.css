@@ -209,43 +209,6 @@ button:disabled { cursor: not-allowed; opacity: .65; }
 }
 .auth-form input::placeholder { color: var(--placeholder); opacity: 1; }
 .auth-form input:focus { border-color: #1877f2; box-shadow: 0 0 0 2px var(--focus-ring); }
-.note-field {
-  position: relative;
-}
-.note-field input {
-  padding-right: 56px;
-}
-.note-visibility-button {
-  position: absolute;
-  top: 50%;
-  right: 17px;
-  display: grid;
-  width: 32px;
-  height: 32px;
-  padding: 5px;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
-  color: var(--placeholder);
-  place-items: center;
-  transform: translateY(-50%);
-}
-.note-visibility-button:hover {
-  background: var(--secondary-background);
-}
-.note-visibility-button:focus-visible {
-  outline: 2px solid #1877f2;
-  outline-offset: 2px;
-}
-.note-visibility-button svg {
-  width: 22px;
-  height: 22px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
-}
 
 .primary-button, .google-button, .outline-button {
   width: 100%;
@@ -318,16 +281,22 @@ button:disabled { cursor: not-allowed; opacity: .65; }
 
   .login-logo {
     margin-top: clamp(48px, 9vh, 88px);
-    margin-bottom: clamp(72px, 11vh, 112px);
+    margin-bottom: 24px;
   }
 
   .login-logo img {
     width: 80px;
   }
 
-  .auth-title,
+  .auth-title {
+    display: block;
+    text-align: center;
+  }
+
   .demo-label {
-    display: none;
+    display: block;
+    margin-bottom: clamp(48px, 8vh, 80px);
+    text-align: center;
   }
 
   .auth-form {
